@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.dudesk</groupId>
+        <artifactId>cycleop</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <artifactId>TheiaUI</artifactId>
+    <packaging>jar</packaging>
+    
+    <name>TheiaUI</name>
+    <description>Java library to create advanced user-interface objects</description>
+    
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>
