@@ -7,4 +7,6 @@ The goal is to regroup many java libraries into one project.
 
 TheiaUI is a java library to create advanced user-interface objects.
 
+### Example
+
 ![](theiaExample.png)
