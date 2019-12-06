@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dudesk.theiaui.steps;
+package org.dudesk.theiaui.wizard;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -31,11 +31,11 @@ import org.dudesk.theiaui.NavigationPanel;
 import org.dudesk.theiaui.TitledPanel;
 
 /**
- * <img src="doc-files/stepDialog.png" width="500" height="200" alt="">
+ * <img src="doc-files/wizard.png" width="500" height="200" alt="">
  * @since 7 nov. 2019
  * @author Tristan Muller (tristan.muller@cirad.fr)
  */
-public class StepDialog extends JDialog {
+public class Wizard extends JDialog {
 
     // ---------------------------------------------------------------------
     // Fields                                                             
@@ -46,7 +46,7 @@ public class StepDialog extends JDialog {
     private final JPanel bodyPanel;
     private final NavigationPanel navigationPanel;
 
-    private final List<StepPanel> steps;
+    private final List<WizardStep> steps;
     private int currentStep;
     private Runnable finishCallback;
 
@@ -54,7 +54,7 @@ public class StepDialog extends JDialog {
     // Constructors
     // ---------------------------------------------------------------------
     
-    public StepDialog(final String title, final JFrame owner) {
+    public Wizard(final String title, final JFrame owner) {
         super(owner, true);
         this.setTitle(title);
         this.setResizable(false);
@@ -108,12 +108,12 @@ public class StepDialog extends JDialog {
     // Methods
     // ---------------------------------------------------------------------
     
-    public final void addStep(final StepPanel panel) {
-        if (panel != null) {
-            if (panel.isMandatory()) {
-                steps.add(0, panel);
+    public final void addStep(final WizardStep step) {
+        if (step != null) {
+            if (step.isMandatory()) {
+                steps.add(0, step);
             } else {
-                steps.add(panel);
+                steps.add(step);
             }
 
             updateSteps();
@@ -196,10 +196,10 @@ public class StepDialog extends JDialog {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-        final StepDialog dialog = new StepDialog("Step dialog", null);
-        dialog.addStep(new NamingStepPanel());
-        dialog.setVisible(true);
+        
+        final Wizard wizard = new Wizard("New Wizard", null);
+        wizard.addStep(new NamingStep());
+        wizard.setVisible(true);
     }
 
 }

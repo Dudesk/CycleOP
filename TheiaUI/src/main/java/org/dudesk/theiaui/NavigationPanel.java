@@ -17,6 +17,7 @@
 
 package org.dudesk.theiaui;
 
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 
 /**
@@ -44,10 +45,14 @@ public class NavigationPanel extends MarginPanel {
         super();
         
         this.contentPanel = new TitledPanel(null);
-        this.backButton = new JButton("< Back");
-        this.nextButton = new JButton("Next >");
-        this.finishButton = new JButton("Finish");
-        this.cancelButton = new JButton("Cancel");
+        this.backButton = new JButton("< " + ResourceBundle.getBundle(
+                "locales/navigationPanel").getString("backButton.text"));
+        this.nextButton = new JButton(ResourceBundle.getBundle(
+                "locales/navigationPanel").getString("nextButton.text") + " >");
+        this.finishButton = new JButton(ResourceBundle.getBundle(
+                "locales/navigationPanel").getString("finishButton.text"));
+        this.cancelButton = new JButton(ResourceBundle.getBundle(
+                "locales/navigationPanel").getString("cancelButton.text"));
         
         backButton.setEnabled(false);
         finishButton.setEnabled(false);
@@ -81,7 +86,7 @@ public class NavigationPanel extends MarginPanel {
     }
     
     public final void addBackEvent(final Runnable event) {
-        if (event != null) {
+        if (null != event) {
             backButton.addActionListener((e) -> {
                 event.run();
             });
@@ -89,7 +94,7 @@ public class NavigationPanel extends MarginPanel {
     }
     
     public final void addNextEvent(final Runnable event) {
-        if (event != null) {
+        if (null != event) {
             nextButton.addActionListener((e) -> {
                 event.run();
             });
@@ -97,7 +102,7 @@ public class NavigationPanel extends MarginPanel {
     }
     
     public final void addFinishEvent(final Runnable event) {
-        if (event != null) {
+        if (null != event) {
             finishButton.addActionListener((e) -> {
                 event.run();
             });
@@ -105,7 +110,7 @@ public class NavigationPanel extends MarginPanel {
     }
     
     public final void addCancelEvent(final Runnable event) {
-        if (event != null) {
+        if (null != event) {
             cancelButton.addActionListener((e) -> {
                 event.run();
             });
@@ -115,7 +120,7 @@ public class NavigationPanel extends MarginPanel {
     /* ------------------------------------------------------------------ */
     /* Overriden methods                                                  */
     /* ------------------------------------------------------------------ */
-
+    
     /* ------------------------------------------------------------------ */
     /* Setteurs                                                           */
     /* ------------------------------------------------------------------ */

@@ -48,14 +48,14 @@ public class TitledPanel extends JPanel {
         super();
         this.titleLabel = new JLabel(title);
         this.titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD));
-        this.titleLabel.setForeground(Color.BLACK);
+        this.titleLabel.setForeground(Color.WHITE);
         this.headerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
-        this.headerPanel.setBackground(new Color(240, 240, 240));
+        this.headerPanel.setBackground(Color.GRAY);
         this.headerPanel.setBorder(new LineBorder(Color.GRAY));
         this.headerPanel.add(titleLabel);
         this.contentPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         this.contentPanel.setBackground(new Color(240, 240, 240));
-        this.contentPanel.setBorder(new LineBorder(Color.LIGHT_GRAY));
+        this.contentPanel.setBorder(new LineBorder(Color.GRAY));
         
         this.setLayout(new BorderLayout());
         

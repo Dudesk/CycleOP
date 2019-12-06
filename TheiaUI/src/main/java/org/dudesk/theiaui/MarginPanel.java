@@ -18,6 +18,7 @@
 package org.dudesk.theiaui;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -37,7 +38,9 @@ public class MarginPanel extends JPanel {
 
     public MarginPanel() {
         super();
+        
         this.setLayout(new CardLayout(10, 10));
+        this.setBackground(Color.LIGHT_GRAY);
     }
     
     /* ------------------------------------------------------------------ */
@@ -47,7 +50,7 @@ public class MarginPanel extends JPanel {
     /* ------------------------------------------------------------------ */
     /* Overriden methods                                                  */
     /* ------------------------------------------------------------------ */
-
+    
     /* ------------------------------------------------------------------ */
     /* Setteurs                                                           */
     /* ------------------------------------------------------------------ */

@@ -33,10 +33,12 @@ public class TextAreaControlLine extends ControlLine {
         super();
         this.textArea = new JTextArea();
         this.textArea.setLineWrap(true);
+        
         this.scrollPane = new JScrollPane(textArea, 
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         this.scrollPane.setPreferredSize(new Dimension(500, 100));
+        
         this.addText(title);
         this.addContent(scrollPane);
     }

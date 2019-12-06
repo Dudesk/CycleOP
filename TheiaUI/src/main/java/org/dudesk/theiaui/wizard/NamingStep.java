@@ -15,17 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.dudesk.theiaui.steps;
+package org.dudesk.theiaui.wizard;
 
+import java.util.ResourceBundle;
 import org.dudesk.theiaui.controls.TextAreaControlLine;
 import org.dudesk.theiaui.controls.TextFieldControlLine;
 
 /**
- * <img src="doc-files/namingStepPanel.png" width="500" height="177" alt="">
+ * <img src="doc-files/namingStep.png" width="500" height="177" alt="">
  * @since 8 nov. 2019
  * @author Tristan Muller (tristan.muller@cirad.fr)
  */
-public class NamingStepPanel extends StepPanel {
+public class NamingStep extends WizardStep {
 
     /* ------------------------------------------------------------------ */
     /* Fields                                                             */
@@ -38,25 +39,19 @@ public class NamingStepPanel extends StepPanel {
     /* Constructors                                                       */
     /* ------------------------------------------------------------------ */
 
-    public NamingStepPanel() {
-        this("Naming");
+    public NamingStep() {
+        this(ResourceBundle.getBundle("locales/namingStep").getString("title"));
     }
     
-    public NamingStepPanel(final String title) {
+    public NamingStep(final String title) {
         super(title, false);
-        this.nameLine = new TextFieldControlLine("Name");
-        this.descLine = new TextAreaControlLine("Description");
+        this.nameLine = new TextFieldControlLine(ResourceBundle.getBundle(
+                "locales/namingStep").getString("nameLine.text"));
+        this.descLine = new TextAreaControlLine(ResourceBundle.getBundle(
+                "locales/namingStep").getString("descLine.text"));
                 
         getControlPanel().addLine(nameLine);
         getControlPanel().addLine(descLine);
-        
-        addCheckFieldValidityCallback(() -> {
-            if (nameLine.getTextValue().isEmpty()) {
-                return "The name value cannot be empty";
-            }
-            
-            return null;
-        });
     }
     
     /* ------------------------------------------------------------------ */
@@ -83,6 +78,16 @@ public class NamingStepPanel extends StepPanel {
     /* Overriden methods                                                  */
     /* ------------------------------------------------------------------ */
 
+    @Override
+    protected String onCheckValidity() {
+        if (nameLine.getTextValue().isEmpty()) {
+            return ResourceBundle.getBundle("locales/namingStep").
+                    getString("nameLine.empty");
+        }
+
+        return null;
+    }
+    
     /* ------------------------------------------------------------------ */
     /* Setteurs                                                           */
     /* ------------------------------------------------------------------ */
